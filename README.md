@@ -1,7 +1,7 @@
-##About
+## About
 Training project developed during `it-kamasutra` training `"React samurai 1.0"`
 
-##TechStack
+## TechStack
 This project is based on [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
