@@ -49,21 +49,3 @@
   grid-gap: 10px;
 }
 
-.header {
-  grid-area: header;
-  background-color: cadetblue;
-}
-
-.header img {
-  width: 20px;
-}
-
-.sidebar {
-  grid-area: nav;
-  background-color: azure;
-}
-
-.content {
-  grid-area: content;
-  background-color: aliceblue;
-}
