@@ -1,20 +1,21 @@
 import s from './ProfilePage.module.css';
+import MyPosts from '../../myposts/MyPosts';
 
 const ProfilePage = () => {
-  return(
+  return (
     <div className={s.content}>
-      <img src='https://c4.wallpaperflare.com/wallpaper/39/346/426/digital-art-men-city-futuristic-night-hd-wallpaper-thumb.jpg' alt='logo'/>
+      <img
+        src='https://c4.wallpaperflare.com/wallpaper/39/346/426/digital-art-men-city-futuristic-night-hd-wallpaper-thumb.jpg'
+        alt='logo' />
       <div className={s.item}>
-          Avatar
+        Avatar
       </div>
+      <MyPosts />
       <div className={s.item}>
-          my posts
-      </div>
-      <div className={s.item}>
-          comments
+        comments
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ProfilePage;
