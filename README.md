@@ -1,5 +1,5 @@
 ## About
-Training project developed during `it-kamasutra` training `"React samurai 1.0"`
+Training project developed during `it-kamasutra` training `"React samurai 1.0"` in order to refresh knowledges and to get some react practice
 
 ## TechStack
 This project is based on [Create React App](https://github.com/facebook/create-react-app).
