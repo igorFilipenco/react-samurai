@@ -4,7 +4,7 @@ import MyPosts from '../../myposts/MyPosts';
 
 const ProfilePage = () => {
   return (
-    <div>
+    <div className={s.profileContainer}>
       <img
         src='https://c4.wallpaperflare.com/wallpaper/39/346/426/digital-art-men-city-futuristic-night-hd-wallpaper-thumb.jpg'
         alt='logo' />

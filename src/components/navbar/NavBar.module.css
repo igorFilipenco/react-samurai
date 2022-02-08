@@ -1,12 +1,20 @@
 .sidebar {
     grid-area: nav;
-    background-color: darkgoldenrod;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px lightgray;
+    background-color: #420c69;
 }
 
 .item {
+    margin: 10px 0 0  30px;
     color: white;
+    text-decoration: #fafafa;
 }
 
 .item.active {
-    color: black;
+    color: #000000;
+}
+
+a {
+    color: #ffffff;
 }

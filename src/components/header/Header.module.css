@@ -2,7 +2,9 @@
 
 .header {
     grid-area: header;
-    background-color: cadetblue;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px 1px lightgray;
+    background-color: #414040;
 }
 
 .header img {
