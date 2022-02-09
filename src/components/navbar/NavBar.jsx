@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <nav className={s.sidebar}>
-      <div className={`${s.item} ${s.active}`}>
+    <nav className={s.sidebarContainer}>
+      <div className={s.item + ' ' + s.active}>
         <Link to='/profile'>Profile</Link>
       </div>
       <div className={s.item}>

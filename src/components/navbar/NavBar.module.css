@@ -1,4 +1,4 @@
-.sidebar {
+.sidebarContainer {
     grid-area: nav;
     border-radius: 10px;
     box-shadow: 1px 1px 3px 1px lightgray;
@@ -11,8 +11,8 @@
     text-decoration: #fafafa;
 }
 
-.item.active {
-    color: #000000;
+.item .active {
+    color: darkgray;
 }
 
 a {

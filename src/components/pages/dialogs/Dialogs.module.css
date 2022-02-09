@@ -1,0 +1,27 @@
+.dialogsContainer {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogs {
+    border-right: solid 1px #ababab;
+}
+
+.dialog {
+    margin: 5px;
+    padding : 5px;
+}
+
+.dialogs .active {
+    background: #cecbcb;
+    border-radius: 7px;
+}
+
+.messages {
+
+}
+
+.messages .message {
+    margin: 10px;
+}
