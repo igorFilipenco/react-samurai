@@ -1,6 +1,5 @@
 import { Routes } from 'react-router-dom';
 //components
-import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import NavBar from './components/navbar/NavBar';
 //services
@@ -19,7 +18,6 @@ const App = () => {
           {RoutingService.getRoutes()}
         </Routes>
       </div>
-      <Footer />
     </div>
   );
 };

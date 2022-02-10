@@ -8,20 +8,7 @@
     border-right: solid 1px #ababab;
 }
 
-.dialog {
-    margin: 5px;
-    padding : 5px;
-}
-
-.dialogs .active {
-    background: #cecbcb;
-    border-radius: 7px;
-}
-
 .messages {
 
 }
 
-.messages .message {
-    margin: 10px;
-}

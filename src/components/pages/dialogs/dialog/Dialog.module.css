@@ -1,0 +1,19 @@
+.dialog {
+    margin: 5px;
+    padding: 10px;
+    border-bottom: solid 1px #dbd9d7;
+}
+
+.active {
+    background: #afadad;
+    border-radius: 7px;
+}
+
+.active a {
+    color: #fcfcfc !important;
+}
+
+.dialog a {
+    color: #4d4f54;
+}
+

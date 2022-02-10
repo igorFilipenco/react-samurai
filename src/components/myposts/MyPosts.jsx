@@ -1,4 +1,4 @@
-//import s from './MyPosts.module.css';
+import s from './MyPosts.module.css';
 import Post from './post/Post';
 
 
@@ -14,11 +14,10 @@ const MyPosts = () => {
           Add Button
         </button>
       </div>
-      <Post message='msg1' />
-      <Post message='msg1' />
-      <Post />
-      <Post />
-      <Post />
+      <div className={s.postsContainer}>
+        <Post message='msg1' />
+        <Post message='msg1' />
+      </div>
     </div>
   );
 };

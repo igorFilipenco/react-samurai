@@ -1,45 +1,26 @@
 import s from './Dialogs.module.css';
+import Dialog from './dialog/Dialog';
+import Message from './message/Message';
 
 
 const Dialogs = () => {
-  return(
+  return (
     <div className={s.dialogsContainer}>
       <div className={s.dialogs}>
-        <div className={s.dialog + ' ' + s.active}>
-          Dialog0
-        </div>
-        <div className={s.dialog}>
-          Dialog1
-        </div>
-        <div className={s.dialog}>
-          Dialog2
-        </div>
-        <div className={s.dialog}>
-          Dialog3
-        </div>
-        <div className={s.dialog}>
-          Dialog4
-        </div>
+        <Dialog name='Harry' id={1} isActive={true} />
+        <Dialog name='John' id={2} />
+        <Dialog name='Heidi' id={3} />
+        <Dialog name='Crissy' id={4} />
+        <Dialog name='Bill' id={5} />
       </div>
 
       <div className={s.messages}>
-        <div className={s.message}>
-          Hi
-        </div>
-        <div className={s.message}>
-          How are you
-        </div>
-        <div className={s.message}>
-          Good weather today
-        </div>
-        <div className={s.message}>
-          Funny situation
-        </div>
-        <div className={s.message}>
-          great
-        </div>
+        <Message text='Hi' />
+        <Message text='How are you?' />
+        <Message text='Im fine'  />
       </div>
     </div>
-  )}
+  );
+};
 
 export default Dialogs;
