@@ -14,7 +14,7 @@ class RoutingService {
   static getRoutes = () => {
     return [
       <Route path='/' exact element={<ProfilePage />} />,
-      <Route path='/profile' element={<ProfilePage />} />,
+      <Route path='/profile' exact element={<ProfilePage />} />,
       <Route path='/dialogs' element={<Dialogs />} />,
     ]
   };
