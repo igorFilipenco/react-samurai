@@ -3,6 +3,24 @@ import Post from './post/Post';
 
 
 const MyPosts = () => {
+  let postsMockData = [
+    {
+      id: 1,
+      text: 'Dummy post',
+      likes: 0
+    },
+    {
+      id: 2,
+      text: 'Test post',
+      likes: 1
+    },
+    {
+      id: 3,
+      text: 'Hello world post',
+      likes: 10
+    }
+  ];
+
   return (
     <div>
       <h2>
@@ -15,8 +33,11 @@ const MyPosts = () => {
         </button>
       </div>
       <div className={s.postsContainer}>
-        <Post message='msg1' />
-        <Post message='msg1' />
+        {
+          postsMockData.map(postData =>
+            <Post id={postData?.id} text={postData?.text} likes={postData?.likes} />
+          )
+        }
       </div>
     </div>
   );

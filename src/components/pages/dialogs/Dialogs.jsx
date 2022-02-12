@@ -2,22 +2,60 @@ import s from './Dialogs.module.css';
 import Dialog from './dialog/Dialog';
 import Message from './message/Message';
 
+let dialogsMockData = [
+  {
+    id: 1,
+    name: 'Harry',
+    isActive: true
+  },
+  {
+    id: 2,
+    name: 'John',
+    isActive: false
+  },
+  {
+    id: 3,
+    name: 'Heidi',
+    isActive: false
+  },
+  {
+    id: 4,
+    name: 'Crissy',
+    isActive: false
+  },
+  {
+    id: 5,
+    name: 'Bill',
+    isActive: false
+  }
+];
+
+let messagesMockData = [
+  {
+    text: 'Hi'
+  },
+  {
+    text: 'How are you?'
+  },
+  {
+    text: 'Im fine'
+  }
+];
 
 const Dialogs = () => {
   return (
     <div className={s.dialogsContainer}>
       <div className={s.dialogs}>
-        <Dialog name='Harry' id={1} isActive={true} />
-        <Dialog name='John' id={2} />
-        <Dialog name='Heidi' id={3} />
-        <Dialog name='Crissy' id={4} />
-        <Dialog name='Bill' id={5} />
+        {
+          dialogsMockData.map(dialogData => <Dialog name={dialogData?.name} id={dialogData?.id}
+                                                    isActive={dialogData?.isActive} />)
+        }
       </div>
 
       <div className={s.messages}>
-        <Message text='Hi' />
-        <Message text='How are you?' />
-        <Message text='Im fine'  />
+        {
+          messagesMockData.map(messageData => <Message text={messageData?.text} />)
+        }
       </div>
     </div>
   );

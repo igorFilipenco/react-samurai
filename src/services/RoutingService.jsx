@@ -15,7 +15,8 @@ class RoutingService {
     return [
       <Route path='/' exact element={<ProfilePage />} />,
       <Route path='/profile' exact element={<ProfilePage />} />,
-      <Route path='/dialogs' element={<Dialogs />} />,
+      <Route path='/dialogs'  element={<Dialogs />} />,
+      <Route path='/dialogs/:dialogId' element={<Dialogs />} />,
     ]
   };
 }
