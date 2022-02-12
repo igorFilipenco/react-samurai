@@ -43,19 +43,17 @@ let messagesMockData = [
 ];
 
 const Dialogs = () => {
+  const dialogs = dialogsMockData.map(dialogData => <Dialog name={dialogData?.name} id={dialogData?.id}
+                                                            isActive={dialogData?.isActive} />);
+  const messages = messagesMockData.map(messageData => <Message text={messageData?.text} />);
+
   return (
     <div className={s.dialogsContainer}>
       <div className={s.dialogs}>
-        {
-          dialogsMockData.map(dialogData => <Dialog name={dialogData?.name} id={dialogData?.id}
-                                                    isActive={dialogData?.isActive} />)
-        }
+        {dialogs}
       </div>
-
       <div className={s.messages}>
-        {
-          messagesMockData.map(messageData => <Message text={messageData?.text} />)
-        }
+        {messages}
       </div>
     </div>
   );
