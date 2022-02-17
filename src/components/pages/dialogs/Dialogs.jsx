@@ -1,51 +1,13 @@
 import s from './Dialogs.module.css';
 import Dialog from './dialog/Dialog';
 import Message from './message/Message';
+import { makeRandomKey } from '../../../services/Utilities';
 
-let dialogsMockData = [
-  {
-    id: 1,
-    name: 'Harry',
-    isActive: true
-  },
-  {
-    id: 2,
-    name: 'John',
-    isActive: false
-  },
-  {
-    id: 3,
-    name: 'Heidi',
-    isActive: false
-  },
-  {
-    id: 4,
-    name: 'Crissy',
-    isActive: false
-  },
-  {
-    id: 5,
-    name: 'Bill',
-    isActive: false
-  }
-];
 
-let messagesMockData = [
-  {
-    text: 'Hi'
-  },
-  {
-    text: 'How are you?'
-  },
-  {
-    text: 'Im fine'
-  }
-];
-
-const Dialogs = () => {
-  const dialogs = dialogsMockData.map(dialogData => <Dialog name={dialogData?.name} id={dialogData?.id}
+const Dialogs = (props) => {
+  const dialogs = props.dialogs.map(dialogData => <Dialog key={makeRandomKey()} name={dialogData?.name} id={dialogData?.id}
                                                             isActive={dialogData?.isActive} />);
-  const messages = messagesMockData.map(messageData => <Message text={messageData?.text} />);
+  const messages = props.messages.map(messageData => <Message key = {makeRandomKey()} text={messageData?.text} />);
 
   return (
     <div className={s.dialogsContainer}>
