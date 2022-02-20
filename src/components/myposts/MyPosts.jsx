@@ -4,7 +4,7 @@ import { makeRandomKey } from '../../services/Utilities';
 
 
 const MyPosts = (props) => {
-  const posts = props.posts.map(postData => <Post key={makeRandomKey()} id={postData?.id} text={postData?.text} likes={postData?.likes} />);
+  const posts = props?.posts?.map(postData => <Post key={makeRandomKey()} id={postData?.id} text={postData?.text} likes={postData?.likes} />);
 
   return (
     <div>

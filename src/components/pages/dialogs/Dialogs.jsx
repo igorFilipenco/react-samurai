@@ -5,9 +5,9 @@ import { makeRandomKey } from '../../../services/Utilities';
 
 
 const Dialogs = (props) => {
-  const dialogs = props.dialogs.map(dialogData => <Dialog key={makeRandomKey()} name={dialogData?.name} id={dialogData?.id}
+  const dialogs = props?.dialogs?.map(dialogData => <Dialog key={makeRandomKey()} name={dialogData?.name} id={dialogData?.id}
                                                             isActive={dialogData?.isActive} />);
-  const messages = props.messages.map(messageData => <Message key = {makeRandomKey()} text={messageData?.text} />);
+  const messages = props?.messages?.map(messageData => <Message key = {makeRandomKey()} text={messageData?.text} />);
 
   return (
     <div className={s.dialogsContainer}>

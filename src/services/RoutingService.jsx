@@ -1,11 +1,8 @@
+import { Route } from 'react-router-dom';
+//components
 import ProfilePage from '../components/pages/profile/ProfilePage';
 import Dialogs from '../components/pages/dialogs/Dialogs';
-import { Route } from 'react-router-dom';
-import {
-  dialogsMockData,
-  messagesMockData,
-  postsMockData
-} from '../contract/mockData';
+//services
 import { makeRandomKey } from './Utilities';
 
 
@@ -18,7 +15,13 @@ class RoutingService {
    * Method to get all app route-components
    * @returns {JSX.Element[]}
    */
-  static getRoutes = () => {
+  static getRoutes = (props = {}) => {
+    const {
+      postsMockData,
+      dialogsMockData,
+      messagesMockData
+    } = props;
+
     return [
       <Route key={makeRandomKey()} path='/' exact element={<ProfilePage />} />,
       <Route key={makeRandomKey()} path='/profile' exact element={<ProfilePage posts={postsMockData}/>} />,
