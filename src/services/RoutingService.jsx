@@ -17,17 +17,20 @@ class RoutingService {
    */
   static getRoutes = (props = {}) => {
     const {
-      postsMockData,
       dialogsMockData,
       messagesMockData
-    } = props;
+    } = props.messagePage;
+    const {
+      postsMockData
+    } = props.profilePage;
 
     return [
       <Route key={makeRandomKey()} path='/' exact element={<ProfilePage />} />,
-      <Route key={makeRandomKey()} path='/profile' exact element={<ProfilePage posts={postsMockData}/>} />,
-      <Route key={makeRandomKey()} path='/dialogs'  element={<Dialogs dialogs={dialogsMockData} messages={messagesMockData}/>} />,
-      <Route key={makeRandomKey()} path='/dialogs/:dialogId' element={<Dialogs />} />,
-    ]
+      <Route key={makeRandomKey()} path='/profile' exact element={<ProfilePage posts={postsMockData} />} />,
+      <Route key={makeRandomKey()} path='/dialogs'
+             element={<Dialogs dialogs={dialogsMockData} messages={messagesMockData} />} />,
+      <Route key={makeRandomKey()} path='/dialogs/:dialogId' element={<Dialogs />} />
+    ];
   };
 }
 
