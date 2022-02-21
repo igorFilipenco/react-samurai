@@ -13,7 +13,7 @@ class RoutingService {
 
   /**
    * Method to get all app route-components
-   * @returns {JSX.Element[]}
+   * @returns array of <Routes/> {JSX.Element[]}
    */
   static getRoutes = (props = {}) => {
     const {

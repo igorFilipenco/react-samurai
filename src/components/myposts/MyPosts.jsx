@@ -1,10 +1,16 @@
-import s from './MyPosts.module.css';
+import React from 'react';
+//components
 import Post from './post/Post';
-import { makeRandomKey } from '../../services/Utilities';
+//services
+import { makeRandomKey } from '../../utils/Utilities';
+import s from './MyPosts.module.css';
 
 
 const MyPosts = (props) => {
   const posts = props?.posts?.map(postData => <Post key={makeRandomKey()} id={postData?.id} text={postData?.text} likes={postData?.likes} />);
+
+  const addPost = (e, data) => {
+  };
 
   return (
     <div>
@@ -13,7 +19,7 @@ const MyPosts = (props) => {
       </h2>
       <textarea />
       <div>
-        <button>
+        <button onClick={addPost}>
           Add Button
         </button>
       </div>

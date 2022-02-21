@@ -3,7 +3,7 @@ import { Routes } from 'react-router-dom';
 import Header from './components/header/Header';
 import NavBar from './components/navbar/NavBar';
 //services
-import RoutingService from './services/RoutingService';
+import RoutingService from './utils/RoutingService';
 //style
 import './App.css';
 

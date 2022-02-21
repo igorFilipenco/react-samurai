@@ -1,7 +1,7 @@
 import s from './Dialogs.module.css';
 import Dialog from './dialog/Dialog';
 import Message from './message/Message';
-import { makeRandomKey } from '../../../services/Utilities';
+import { makeRandomKey } from '../../../utils/Utilities';
 
 
 const Dialogs = (props) => {
