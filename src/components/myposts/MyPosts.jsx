@@ -4,12 +4,17 @@ import Post from './post/Post';
 //services
 import { makeRandomKey } from '../../utils/Utilities';
 import s from './MyPosts.module.css';
+import TextArea from '../textarea/TextArea';
 
 
 const MyPosts = (props) => {
-  const posts = props?.posts?.map(postData => <Post key={makeRandomKey()} id={postData?.id} text={postData?.text} likes={postData?.likes} />);
+  const posts = props?.posts?.map(postData => <Post key={makeRandomKey()} id={postData?.id} text={postData?.text}
+                                                    likes={postData?.likes} />);
+  const postTextRef = React.createRef();
 
-  const addPost = (e, data) => {
+  const addPost = () => {
+    props.addPost(postTextRef.current.value);
+    postTextRef.current.value = '';
   };
 
   return (
@@ -17,7 +22,7 @@ const MyPosts = (props) => {
       <h2>
         My Posts
       </h2>
-      <textarea />
+      <TextArea textAreaRef={postTextRef} />
       <div>
         <button onClick={addPost}>
           Add Button

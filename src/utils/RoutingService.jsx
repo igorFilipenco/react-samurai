@@ -15,7 +15,7 @@ class RoutingService {
    * Method to get all app route-components
    * @returns array of <Routes/> {JSX.Element[]}
    */
-  static getRoutes = (props = {}) => {
+  static getRoutes = (props = {}, addPost) => {
     const {
       dialogsMockData,
       messagesMockData
@@ -25,8 +25,8 @@ class RoutingService {
     } = props.profilePage;
 
     return [
-      <Route key={makeRandomKey()} path='/' exact element={<ProfilePage />} />,
-      <Route key={makeRandomKey()} path='/profile' exact element={<ProfilePage posts={postsMockData} />} />,
+      <Route key={makeRandomKey()} path='/' exact element={<ProfilePage posts={postsMockData} addPost={addPost} />} />,
+      <Route key={makeRandomKey()} path='/profile' exact element={<ProfilePage posts={postsMockData} addPost={addPost}/>} />,
       <Route key={makeRandomKey()} path='/dialogs'
              element={<Dialogs dialogs={dialogsMockData} messages={messagesMockData} />} />,
       <Route key={makeRandomKey()} path='/dialogs/:dialogId' element={<Dialogs />} />
