@@ -15,7 +15,7 @@ const App = (props) => {
       <NavBar />
       <div className='app-wrapper-content'>
         <Routes>
-          {RoutingService.getRoutes(props.state, props.addPost)}
+          {RoutingService.getRoutes(props.state, props.addPost, props.onPostTextChange)}
         </Routes>
       </div>
     </div>

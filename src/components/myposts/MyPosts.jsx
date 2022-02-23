@@ -10,21 +10,16 @@ import TextArea from '../textarea/TextArea';
 const MyPosts = (props) => {
   const posts = props?.posts?.map(postData => <Post key={makeRandomKey()} id={postData?.id} text={postData?.text}
                                                     likes={postData?.likes} />);
-  const postTextRef = React.createRef();
-
-  const addPost = () => {
-    props.addPost(postTextRef.current.value);
-    postTextRef.current.value = '';
-  };
 
   return (
     <div>
       <h2>
         My Posts
       </h2>
-      <TextArea textAreaRef={postTextRef} />
+      <TextArea  value={props.newPostText}
+                onChange={e => props.onPostTextChange(e.target.value)} />
       <div>
-        <button onClick={addPost}>
+        <button onClick={() => props.addPost()}>
           Add Button
         </button>
       </div>

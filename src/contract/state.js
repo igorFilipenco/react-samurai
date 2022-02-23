@@ -58,7 +58,9 @@ let state = {
         text: 'Hello world post',
         likes: 10
       }
-    ]
+    ],
+    newPostText: ''
   }
 };
+
 export default state;

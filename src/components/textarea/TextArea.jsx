@@ -1,10 +1,14 @@
 import React from 'react';
 import s from './TextArea.module.css';
 
-const TextArea = (props) => {
 
+const TextArea = (props) => {
   return (
-    <textarea className={s.textareaClass} ref={props.textAreaRef} />
+    <textarea
+      className={s.textareaClass}
+      value={props.value}
+      onChange={props.onChange}
+    />
   );
 };
 
