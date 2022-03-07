@@ -1,9 +1,26 @@
 import reportWebVitals from './reportWebVitals';
-import state from '../src/contract/state';
-import { renderApp } from './renderApp';
+import store from '../src/contract/state';
+import ReactDOM from 'react-dom';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import './index.css';
 
 
-renderApp(state);
+const renderApp = (state) => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <App state={state}/>
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+};
+
+renderApp(store.getState());
+
+store.subscribe(renderApp)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -16,7 +16,8 @@ const MyPosts = (props) => {
       <h2>
         My Posts
       </h2>
-      <TextArea  value={props.newPostText}
+      <TextArea value={props.newPostText}
+                placeholder={'Create new post...'}
                 onChange={e => props.onPostTextChange(e.target.value)} />
       <div>
         <button onClick={() => props.addPost()}>

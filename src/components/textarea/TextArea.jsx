@@ -7,6 +7,7 @@ const TextArea = (props) => {
     <textarea
       className={s.textareaClass}
       value={props.value}
+      placeholder={props.placeholder}
       onChange={props.onChange}
     />
   );

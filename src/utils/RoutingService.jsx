@@ -4,6 +4,7 @@ import ProfilePage from '../components/pages/profile/ProfilePage';
 import Dialogs from '../components/pages/dialogs/Dialogs';
 //services
 import { makeRandomKey } from './Utilities';
+import store from '../contract/state';
 
 
 /**
@@ -15,21 +16,36 @@ class RoutingService {
    * Method to get all app route-components
    * @returns array of <Routes/> {JSX.Element[]}
    */
-  static getRoutes = (props = {}, addPost, onPostTextChange) => {
+  static getRoutes = (state = {}) => {
     const {
       dialogsMockData,
       messagesMockData
-    } = props.messagePage;
+    } = state.messagePage;
     const {
       postsMockData,
       newPostText
-    } = props.profilePage;
+    } = state.profilePage;
 
     return [
-      <Route key={makeRandomKey()} path='/' element={<ProfilePage posts={postsMockData} addPost={addPost} onPostTextChange={onPostTextChange} newPostText={newPostText}/>} />,
-      <Route key={makeRandomKey()} path='/profile'  element={<ProfilePage posts={postsMockData} addPost={addPost} onPostTextChange={onPostTextChange} newPostText={newPostText}/>} />,
-      <Route key={makeRandomKey()} path='/dialogs'
-             element={<Dialogs dialogs={dialogsMockData} messages={messagesMockData} />} />,
+      <Route key={makeRandomKey()}
+             path='/'
+             element={<ProfilePage posts={postsMockData}
+                                   addPost={store.addPost.bind(store)}
+                                   onPostTextChange={store.onPostTextChange.bind(store)}
+                                   newPostText={newPostText} />}
+      />,
+      <Route key={makeRandomKey()}
+             path='/profile'
+             element={<ProfilePage posts={postsMockData}
+                                   addPost={store.addPost.bind(store)}
+                                   onPostTextChange={store.onPostTextChange.bind(store)}
+                                   newPostText={newPostText} />}
+      />,
+      <Route key={makeRandomKey()}
+             path='/dialogs'
+             element={<Dialogs dialogs={dialogsMockData}
+                               messages={messagesMockData} />}
+      />,
       <Route key={makeRandomKey()} path='/dialogs/:dialogId' element={<Dialogs />} />
     ];
   };
