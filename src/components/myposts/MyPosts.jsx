@@ -18,9 +18,9 @@ const MyPosts = (props) => {
       </h2>
       <TextArea value={props.newPostText}
                 placeholder={'Create new post...'}
-                onChange={e => props.onPostTextChange(e.target.value)} />
+                onChange={e => props.dispatch({ type: 'POST_TEXT_UPDATE', payload: e.target.value })} />
       <div>
-        <button onClick={() => props.addPost()}>
+        <button onClick={() => props.dispatch({ type: 'ADD_POST' })}>
           Add Button
         </button>
       </div>

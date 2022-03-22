@@ -30,15 +30,13 @@ class RoutingService {
       <Route key={makeRandomKey()}
              path='/'
              element={<ProfilePage posts={postsMockData}
-                                   addPost={store.addPost.bind(store)}
-                                   onPostTextChange={store.onPostTextChange.bind(store)}
+                                   dispatch={store.dispatch.bind(store)}
                                    newPostText={newPostText} />}
       />,
       <Route key={makeRandomKey()}
              path='/profile'
              element={<ProfilePage posts={postsMockData}
-                                   addPost={store.addPost.bind(store)}
-                                   onPostTextChange={store.onPostTextChange.bind(store)}
+                                   dispatch={store.dispatch.bind(store)}
                                    newPostText={newPostText} />}
       />,
       <Route key={makeRandomKey()}
@@ -46,7 +44,10 @@ class RoutingService {
              element={<Dialogs dialogs={dialogsMockData}
                                messages={messagesMockData} />}
       />,
-      <Route key={makeRandomKey()} path='/dialogs/:dialogId' element={<Dialogs />} />
+      <Route key={makeRandomKey()}
+             path='/dialogs/:dialogId'
+             element={<Dialogs />}
+      />
     ];
   };
 }
