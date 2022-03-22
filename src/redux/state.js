@@ -1,4 +1,8 @@
 //redux-store simulator
+import {
+  ADD_POST,
+  POST_TEXT_UPDATE
+} from './actionCreators/posts';
 
 
 let store = {
@@ -98,10 +102,10 @@ let store = {
    */
   dispatch(action = {}) {
     switch (action.type) {
-      case 'ADD_POST':
+      case ADD_POST:
         this.addPost();
         break;
-      case 'POST_TEXT_UPDATE':
+      case POST_TEXT_UPDATE:
         this.onPostTextChange(action.payload);
         break;
     }

@@ -1,5 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import store from '../src/contract/state';
+import store from '../src/redux/state';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';

@@ -1,10 +1,15 @@
 import React from 'react';
+//redux
+import {
+  addPostActionCreator,
+  postTextChangeActionCreator
+} from '../../redux/actionCreators/posts';
 //components
 import Post from './post/Post';
+import TextArea from '../textarea/TextArea';
 //services
 import { makeRandomKey } from '../../utils/Utilities';
 import s from './MyPosts.module.css';
-import TextArea from '../textarea/TextArea';
 
 
 const MyPosts = (props) => {
@@ -18,9 +23,9 @@ const MyPosts = (props) => {
       </h2>
       <TextArea value={props.newPostText}
                 placeholder={'Create new post...'}
-                onChange={e => props.dispatch({ type: 'POST_TEXT_UPDATE', payload: e.target.value })} />
+                onChange={e => props.dispatch(postTextChangeActionCreator(e.target.value))} />
       <div>
-        <button onClick={() => props.dispatch({ type: 'ADD_POST' })}>
+        <button onClick={() => props.dispatch(addPostActionCreator())}>
           Add Button
         </button>
       </div>

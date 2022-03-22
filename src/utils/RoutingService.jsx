@@ -4,7 +4,7 @@ import ProfilePage from '../components/pages/profile/ProfilePage';
 import Dialogs from '../components/pages/dialogs/Dialogs';
 //services
 import { makeRandomKey } from './Utilities';
-import store from '../contract/state';
+import store from '../redux/state';
 
 
 /**
