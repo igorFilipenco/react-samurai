@@ -7,7 +7,7 @@ const Dialog = (props) => {
   const dialogStyle = props.isActive ? s.dialog + ' ' + s.active : s.dialog;
 
   return (
-    <div className={dialogStyle}>
+    <div onClick={props.onDialogItemClick} className={dialogStyle}>
       <Link to={path}>
         {props?.name}
       </Link>

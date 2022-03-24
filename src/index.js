@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 
+let state = store.getState();
 
 const renderApp = (state) => {
   ReactDOM.render(
@@ -18,7 +19,7 @@ const renderApp = (state) => {
   );
 };
 
-renderApp(store.getState());
+renderApp(state);
 
 store.subscribe(renderApp)
 

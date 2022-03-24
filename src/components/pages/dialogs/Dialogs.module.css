@@ -12,3 +12,32 @@
 
 }
 
+.sendMessageWrapper {
+    display: inline-flex;
+    padding: 10px;
+    width: 100%;
+}
+
+.sendMessageWrapper button {
+    margin: 10px 5px 5px 5px;
+    height: 35px;
+    cursor: pointer;
+    background: #1e7cc5;
+    color: #fcfafa;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0 1px 5px #c9c6c6;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sendMessageWrapper button:hover {
+    background: #1a66a1;
+    color: #fcfafa;
+}
+
+.sendMessageWrapper button:active{
+    background-color: #155383;
+    transform: translateY(2px);
+}
+

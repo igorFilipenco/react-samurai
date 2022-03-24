@@ -19,7 +19,9 @@ class RoutingService {
   static getRoutes = (state = {}) => {
     const {
       dialogsMockData,
-      messagesMockData
+      messagesMockData,
+      newMessageText,
+      activeDialogId
     } = state.messagePage;
     const {
       postsMockData,
@@ -31,22 +33,35 @@ class RoutingService {
              path='/'
              element={<ProfilePage posts={postsMockData}
                                    dispatch={store.dispatch.bind(store)}
-                                   newPostText={newPostText} />}
+                                   newPostText={newPostText}
+             />}
       />,
       <Route key={makeRandomKey()}
              path='/profile'
              element={<ProfilePage posts={postsMockData}
                                    dispatch={store.dispatch.bind(store)}
-                                   newPostText={newPostText} />}
+                                   newPostText={newPostText}
+             />}
       />,
       <Route key={makeRandomKey()}
              path='/dialogs'
-             element={<Dialogs dialogs={dialogsMockData}
-                               messages={messagesMockData} />}
+             element={<Dialogs
+               newMessageText={newMessageText}
+               activeDialogId={activeDialogId}
+               dialogs={dialogsMockData}
+               messages={messagesMockData}
+               dispatch={store.dispatch.bind(store)}
+             />}
       />,
       <Route key={makeRandomKey()}
              path='/dialogs/:dialogId'
-             element={<Dialogs />}
+             element={<Dialogs
+               newMessageText={newMessageText}
+               activeDialogId={activeDialogId}
+               dialogs={dialogsMockData}
+               messages={messagesMockData}
+               dispatch={store.dispatch.bind(store)}
+             />}
       />
     ];
   };
