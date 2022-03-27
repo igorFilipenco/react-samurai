@@ -4,7 +4,7 @@ import ProfilePage from '../components/pages/profile/ProfilePage';
 import Dialogs from '../components/pages/dialogs/Dialogs';
 //services
 import { makeRandomKey } from './Utilities';
-import store from '../redux/state';
+import store from '../redux/reduxStore';
 
 
 /**
@@ -21,12 +21,14 @@ class RoutingService {
       dialogsMockData,
       messagesMockData,
       newMessageText,
+    } = state.messages;
+    const {
       activeDialogId
-    } = state.messagePage;
+    } = state.dialogs;
     const {
       postsMockData,
       newPostText
-    } = state.profilePage;
+    } = state.posts;
 
     return [
       <Route key={makeRandomKey()}

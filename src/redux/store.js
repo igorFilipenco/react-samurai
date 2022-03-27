@@ -1,13 +1,7 @@
 //redux-store simulator
-import {
-  ADD_POST,
-  POST_TEXT_UPDATE
-} from './actionCreators/posts';
-import {
-  MESSAGE_TEXT_UPDATE,
-  SEND_MESSAGE
-} from './actionCreators/messages';
-import { SET_ACTIVE_DIALOG } from './actionCreators/dialogs';
+import dialogs from './reducers/dialogs';
+import messages from './reducers/messages';
+import posts from './reducers/posts';
 
 
 let store = {
@@ -97,39 +91,6 @@ let store = {
   getState() {
     return this._state;
   },
-  onPostTextChange(postText = '') {
-    this._state.profilePage.newPostText = postText;
-    this._callSubscriber(this._state);
-  },
-  onMessageTextChange(message = '') {
-    this._state.messagePage.newMessageText = message;
-    this._callSubscriber(this._state);
-  },
-  addPost() {
-    const newPost = {
-      id: 1,
-      text: this._state.profilePage.newPostText,
-      likes: 0
-    };
-
-    this._state.profilePage.postsMockData.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscriber(this._state);
-  },
-  sendMessage() {
-    const newMessage = {
-      id: 6,
-      dialogId: this._state.messagePage.activeDialogId,
-      text: this._state.messagePage.newMessageText
-    };
-    this._state.messagePage.messagesMockData.push(newMessage);
-    this._state.messagePage.newMessageText = '';
-    this._callSubscriber(this._state);
-  },
-  setActiveDialog(dialogId = 1) {
-    this._state.messagePage.activeDialogId = dialogId;
-    this._callSubscriber(this._state);
-  },
   subscribe(observer) {
     this._callSubscriber = observer;
   },
@@ -142,23 +103,11 @@ let store = {
    * }
    */
   dispatch(action = {}) {
-    switch (action.type) {
-      case ADD_POST:
-        this.addPost();
-        break;
-      case POST_TEXT_UPDATE:
-        this.onPostTextChange(action.payload);
-        break;
-      case MESSAGE_TEXT_UPDATE:
-        this.onMessageTextChange(action.payload);
-        break;
-      case SEND_MESSAGE:
-        this.sendMessage(action.payload);
-        break;
-      case SET_ACTIVE_DIALOG:
-        this.setActiveDialog(action.payload);
-        break;
-    }
+    this._state.messagePage = dialogs(this._state.messagePage, action);
+    this._state.messagePage = messages(this._state.messagePage, action);
+    this._state.profilePage = posts(this._state.profilePage, action);
+
+    this._callSubscriber(this._state);
   }
 };
 
