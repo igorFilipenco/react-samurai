@@ -1,10 +1,9 @@
 import { Route } from 'react-router-dom';
 //components
 import ProfilePage from '../components/pages/profile/ProfilePage';
-import Dialogs from '../components/pages/dialogs/Dialogs';
+import DialogsContainer from '../components/pages/dialogs/DialogsContainer';
 //services
 import { makeRandomKey } from './Utilities';
-import store from '../redux/reduxStore';
 
 
 /**
@@ -16,54 +15,23 @@ class RoutingService {
    * Method to get all app route-components
    * @returns array of <Routes/> {JSX.Element[]}
    */
-  static getRoutes = (state = {}) => {
-    const {
-      dialogsMockData,
-      messagesMockData,
-      newMessageText,
-    } = state.messages;
-    const {
-      activeDialogId
-    } = state.dialogs;
-    const {
-      postsMockData,
-      newPostText
-    } = state.posts;
-
+  static getRoutes = (state = {}, dispatch = {}) => {
     return [
       <Route key={makeRandomKey()}
              path='/'
-             element={<ProfilePage posts={postsMockData}
-                                   dispatch={store.dispatch.bind(store)}
-                                   newPostText={newPostText}
-             />}
+             element={<ProfilePage store={state} dispatch={dispatch} />}
       />,
       <Route key={makeRandomKey()}
              path='/profile'
-             element={<ProfilePage posts={postsMockData}
-                                   dispatch={store.dispatch.bind(store)}
-                                   newPostText={newPostText}
-             />}
+             element={<ProfilePage store={state} dispatch={dispatch} />}
       />,
       <Route key={makeRandomKey()}
              path='/dialogs'
-             element={<Dialogs
-               newMessageText={newMessageText}
-               activeDialogId={activeDialogId}
-               dialogs={dialogsMockData}
-               messages={messagesMockData}
-               dispatch={store.dispatch.bind(store)}
-             />}
+             element={<DialogsContainer store={state} dispatch={dispatch} />}
       />,
       <Route key={makeRandomKey()}
              path='/dialogs/:dialogId'
-             element={<Dialogs
-               newMessageText={newMessageText}
-               activeDialogId={activeDialogId}
-               dialogs={dialogsMockData}
-               messages={messagesMockData}
-               dispatch={store.dispatch.bind(store)}
-             />}
+             element={<DialogsContainer store={state} dispatch={dispatch} />}
       />
     ];
   };

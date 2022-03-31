@@ -1,10 +1,3 @@
-//redux
-import { setActiveDialogActionCreator } from '../../../redux/actionCreators/dialogs';
-import {
-  messageTextUpdateActionCreator,
-  sendMessageActionCreator
-}
-  from '../../../redux/actionCreators/messages';
 //components
 import Dialog from './dialog/Dialog';
 import Message from './message/Message';
@@ -16,10 +9,11 @@ import s from './Dialogs.module.css';
 
 const Dialogs = (props) => {
   const {
-    activeDialogId
+    activeDialogId,
+    newMessageText
   } = props;
   const dialogs = props?.dialogs?.map(dialogData => <Dialog
-    onDialogItemClick={() => props.dispatch(setActiveDialogActionCreator(dialogData.id))}
+    onDialogItemClick={() => props.onDialogItemClick(dialogData.id)}
     key={makeRandomKey()}
     name={dialogData?.name}
     id={dialogData?.id}
@@ -27,8 +21,8 @@ const Dialogs = (props) => {
   />);
   const messages = props?.messages?.map(messageData => messageData.dialogId === activeDialogId &&
     <Message key={makeRandomKey()} text={messageData?.text} />);
-  const onMessageBodyUpdate = e => props.dispatch(messageTextUpdateActionCreator(e.target.value));
-  const sendMessage = () => props.dispatch(sendMessageActionCreator());
+  const onMessageBodyUpdate = e => props.onMessageBodyUpdate(e.target.value);
+  const sendMessage = () => props.sendMessage();
 
   return (
     <div className={s.dialogsContainer}>
@@ -38,7 +32,7 @@ const Dialogs = (props) => {
       <div className={s.messages}>
         {messages}
         <div className={s.sendMessageWrapper}>
-          <TextArea value={props.newMessageText}
+          <TextArea value={newMessageText}
                     placeholder={'New message...'}
                     onChange={onMessageBodyUpdate}
           />
