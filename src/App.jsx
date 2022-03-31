@@ -8,14 +8,14 @@ import RoutingService from './utils/RoutingService';
 import './App.css';
 
 
-const App = (props) => {
+const App = () => {
   return (
     <div className='app-wrapper'>
       <Header />
       <NavBar />
       <div className='app-wrapper-content'>
         <Routes>
-          {RoutingService.getRoutes(props.state, props.dispatch)}
+          {RoutingService.getRoutes()}
         </Routes>
       </div>
     </div>

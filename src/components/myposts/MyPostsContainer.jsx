@@ -1,32 +1,27 @@
-import React from 'react';
 //redux
-import { addPostActionCreator, postTextChangeActionCreator } from '../../redux/actionCreators/posts';
+import { connect } from 'react-redux';
+import {
+  addPostActionCreator,
+  postTextChangeActionCreator
+} from '../../redux/actionCreators/posts';
 //components
 import MyPosts from './MyPosts';
 
 
-const MyPostsContainer = (props) => {
-  // debugger;
-  const {
-    postsMockData,
-    newPostText
-  } = props.store.posts;
-  const onPostTextChange = (text = '') => {
-    props.dispatch(postTextChangeActionCreator(text));
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts.postsMockData,
+    newPostText: state.posts.newPostText
   };
-
-  const addPost = () => {
-    props.dispatch(addPostActionCreator());
-  };
-
-  return (
-    <MyPosts
-      posts={postsMockData}
-      newPostText={newPostText}
-      onPostTextChange={onPostTextChange}
-      addPost={addPost}
-    />
-  );
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onPostTextChange: text => dispatch(postTextChangeActionCreator(text)),
+    addPost: () => dispatch(addPostActionCreator())
+  };
+};
+
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 export default MyPostsContainer;

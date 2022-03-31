@@ -1,39 +1,31 @@
 //redux
+import { connect } from 'react-redux';
 import { setActiveDialogActionCreator } from '../../../redux/actionCreators/dialogs';
 import {
   messageTextUpdateActionCreator,
   sendMessageActionCreator
-}
-  from '../../../redux/actionCreators/messages';
+} from '../../../redux/actionCreators/messages';
 //components
 import Dialogs from './Dialogs';
 
 
-const DialogsContainer = (props) => {
-  const {
-    messagesMockData,
-    dialogsMockData,
-    newMessageText
-  } = props.store.messages;
-  const {
-    activeDialogId,
-  } = props.store.dialogs;
-
-  const onDialogItemClick = (dialogId) => props.dispatch(setActiveDialogActionCreator(dialogId));
-  const onMessageBodyUpdate = text => props.dispatch(messageTextUpdateActionCreator(text));
-  const sendMessage = () => props.dispatch(sendMessageActionCreator());
-
-  return (
-    <Dialogs
-      dialogs={dialogsMockData}
-      messages={messagesMockData}
-      activeDialogId={activeDialogId}
-      newMessageText={newMessageText}
-      onDialogItemClick={onDialogItemClick}
-      onMessageBodyUpdate={onMessageBodyUpdate}
-      sendMessage={sendMessage}
-    />
-  );
+const mapStateToProps = (state) => {
+  return {
+    dialogs: state.dialogs.dialogsMockData,
+    activeDialogId: state.dialogs.activeDialogId,
+    messages: state.messages.messagesMockData,
+    newMessageText: state.messages.newMessageText
+  };
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onDialogItemClick: (dialogId) => dispatch(setActiveDialogActionCreator(dialogId)),
+    onMessageBodyUpdate: text => dispatch(messageTextUpdateActionCreator(text)),
+    sendMessage: () => dispatch(sendMessageActionCreator())
+  };
+};
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 export default DialogsContainer;

@@ -5,34 +5,6 @@ import {
 
 
 const initialState = {
-  dialogsMockData: [
-    {
-      id: 1,
-      name: 'Harry',
-      isActive: true
-    },
-    {
-      id: 2,
-      name: 'John',
-      isActive: false
-    },
-    {
-      id: 3,
-      name: 'Heidi',
-      isActive: false
-    },
-    {
-      id: 4,
-      name: 'Crissy',
-      isActive: false
-    },
-    {
-      id: 5,
-      name: 'Bill',
-      isActive: false
-    }
-  ],
-  activeDialogId: 1,
   messagesMockData: [
     {
       id: 1,
@@ -65,20 +37,25 @@ const initialState = {
 
 const messages = (state = initialState, action) => {
   switch (action.type) {
-    case SEND_MESSAGE:
+    case SEND_MESSAGE: {
       const newMessage = {
         id: 6,
         dialogId: action.payload,
         text: state.newMessageText
       };
 
-      state.messagesMockData.push(newMessage);
-      state.newMessageText = '';
-
-      return state;
-    case MESSAGE_TEXT_UPDATE:
-      state.newMessageText = action.payload;
-      return state;
+      return {
+        ...state,
+        messagesMockData: [...state.messagesMockData,  newMessage],
+        newMessageText: ''
+      };
+    }
+    case MESSAGE_TEXT_UPDATE: {
+      return {
+        ...state,
+        newMessageText: action.payload
+      };
+    }
     default:
       return state;
   }

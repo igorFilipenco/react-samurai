@@ -27,20 +27,25 @@ const initialState = {
 
 const posts = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       const newPost = {
         id: 1,
         text: state.newPostText,
         likes: 0
       };
 
-      state.postsMockData.push(newPost);
-      state.newPostText = '';
-
-      return state;
-    case POST_TEXT_UPDATE:
-      state.newPostText = action.payload;
-      return state;
+      return {
+        ...state,
+        postsMockData: [...state.postsMockData, newPost],
+        newPostText: ''
+      };
+    }
+    case POST_TEXT_UPDATE: {
+      return {
+        ...state,
+        newPostText: action.payload
+      };
+    }
     default:
       return state;
   }

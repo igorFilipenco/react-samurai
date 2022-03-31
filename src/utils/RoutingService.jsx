@@ -15,23 +15,23 @@ class RoutingService {
    * Method to get all app route-components
    * @returns array of <Routes/> {JSX.Element[]}
    */
-  static getRoutes = (state = {}, dispatch = {}) => {
+  static getRoutes = () => {
     return [
       <Route key={makeRandomKey()}
              path='/'
-             element={<ProfilePage store={state} dispatch={dispatch} />}
+             element={<ProfilePage/>}
       />,
       <Route key={makeRandomKey()}
              path='/profile'
-             element={<ProfilePage store={state} dispatch={dispatch} />}
+             element={<ProfilePage/>}
       />,
       <Route key={makeRandomKey()}
              path='/dialogs'
-             element={<DialogsContainer store={state} dispatch={dispatch} />}
+             element={<DialogsContainer/>}
       />,
       <Route key={makeRandomKey()}
              path='/dialogs/:dialogId'
-             element={<DialogsContainer store={state} dispatch={dispatch} />}
+             element={<DialogsContainer/>}
       />
     ];
   };
