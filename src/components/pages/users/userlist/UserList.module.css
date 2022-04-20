@@ -1,0 +1,16 @@
+.avatarContainer img {
+    max-height: 100px;
+}
+
+.userList {
+    list-style-type: none;
+    padding-inline-start: 5px;
+}
+
+.userList li {
+    padding: 15px;
+    margin: 10px 0 10px 0;
+    border: 1px solid #dedcdc;
+    border-radius: 12px;
+    background-color: #faf2f7;
+}

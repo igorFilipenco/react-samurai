@@ -1,27 +1,20 @@
 import React from 'react';
-import { makeRandomKey } from '../../../../utils/Utilities';
+import s from './UserList.module.css';
+import UserListItem from './UserListItem';
 
 
 const UserList = (props) => {
   const users = props?.users?.map(user => {
-    return <li key={makeRandomKey()}>
-      <span>
-        {user.followed ? <button onClick={() => props.unFollowUser(user.id)}>Unfollow</button>
-          :
-          <button
-          onClick={() => props.followUser(user.id)}
-          >
-            Follow
-          </button>
-        }
-      </span>
-      {user.name} {user.surname}
-    </li>;
+    return <UserListItem
+      key={user.id}
+      user={user}
+      followUser={props.followUser}
+      unFollowUser={props.unFollowUser}
+    />;
   });
 
-
   return (
-    <ul>
+    <ul className={s.userList}>
       {users && users}
     </ul>
   );
