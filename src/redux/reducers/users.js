@@ -34,7 +34,10 @@ const initialState = {
 const users = (state = initialState, action) => {
   switch (action.type) {
     case GET_USERS: {
-      return state;
+      return {
+        ...state,
+        usersList: action.payload
+      };
     }
     case FOLLOW_USER: {
       return {

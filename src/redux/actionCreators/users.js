@@ -1,20 +1,23 @@
-// import axios from 'axios';
+import axios from 'axios';
+import { Api } from '../../constants/Api';
 
 export const GET_USERS = 'GET_USERS';
 export const FOLLOW_USER = 'FOLLOW_USER';
 export const UNFOLLOW_USER = 'UNFOLLOW_USER';
 
 
-export const getUsersActionCreator = () => (
-//   axios.get('https://social-network.samuraijs.com/api/1.0/users')
-//     .then(response=>
-// )
-
-{
-  type: GET_USERS,
-  payload: null
-}
-);
+export const getUsersActionCreator = () => {
+  return (dispatch) => {
+    return axios.get(Api.BASE_V1 + '/users')
+      .then(response => {
+          dispatch({
+            type: GET_USERS,
+            payload: response?.data?.items
+          });
+        }
+      );
+  };
+};
 
 export const followUserActionCreator = (userId) => ({
   type: FOLLOW_USER,

@@ -13,7 +13,7 @@ const UserListItem = (props) => {
         {props.user.name} {props.user.surname}
       </div>
       <div>
-        {props.user.location.country}, {props.user.location.city}
+        {props.user?.location?.country} {props.user?.location?.city}
       </div>
       <span>
         {props.user.followed ?

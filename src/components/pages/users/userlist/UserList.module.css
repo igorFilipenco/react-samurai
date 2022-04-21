@@ -1,10 +1,12 @@
+
+
 .avatarContainer img {
     max-height: 100px;
 }
 
 .userList {
     list-style-type: none;
-    padding-inline-start: 5px;
+    padding-inline-start: 0;
 }
 
 .userList li {
@@ -12,5 +14,28 @@
     margin: 10px 0 10px 0;
     border: 1px solid #dedcdc;
     border-radius: 12px;
-    background-color: #faf2f7;
+    background-color: #f8f8f8;
+}
+
+.userList li button{
+    margin: 10px 5px 5px 5px;
+    height: 35px;
+    cursor: pointer;
+    background: #1e7cc5;
+    color: #fcfafa;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0 1px 5px #c9c6c6;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.userList li button:hover {
+    background: #1a66a1;
+    color: #fcfafa;
+}
+
+.userList li button:active{
+    background-color: #155383;
+    transform: translateY(2px);
 }
